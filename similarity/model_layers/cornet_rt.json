@@ -1,0 +1,1 @@
+[["decoder", [64, 56, 56], "conv", 2], ["decoder", [128, 28, 28], "conv", 4], ["decoder", [256, 14, 14], "conv", 6], ["decoder", [512, 7, 7], "conv", 8], ["decoder", [512], "pool", 9], ["decoder", [1000], "linear", 10]]
