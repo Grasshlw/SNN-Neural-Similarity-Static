@@ -1,0 +1,3 @@
+# SNN-Neural-Similarity-Static
+
+This repository contains the codes for the paper [Deep Spiking Neural Networks with High Representation Similarity Model Visual Pathways of Macaque and Mouse](https://arxiv.org/abs/2303.06060). We are the first to apply deep SNNs to fit neural representations and shed light on visual processing mechanisms in both macaques and mice, demonstrating the potential of SNNs as a novel and powerful tool for research on the visual system.
