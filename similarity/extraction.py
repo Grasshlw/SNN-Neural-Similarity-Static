@@ -18,16 +18,16 @@ class Extraction:
     def __init__(self, model, model_name, stimulus_path, device="cuda:0"):
         self.model = model.to(device)
         self.model_name = model_name
-        self.set_stimulus(stimulus_path)
         self.device = device
     
         self.features = None
         self.batch_size = 1
-        self.build_dataloader()
+        self.set_stimulus(stimulus_path)
 
     def set_stimulus(self, stimulus_path):
         self.stimulus_path = stimulus_path
         self.stimulus = torch.load(stimulus_path)
+        self.build_dataloader()
     
     def build_dataloader(self):
         self.stimulus_dataset = torch.utils.data.TensorDataset(self.stimulus)
