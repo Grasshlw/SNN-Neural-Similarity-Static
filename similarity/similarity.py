@@ -115,7 +115,8 @@ def get_args():
 
     parser = argparse.ArgumentParser(description="Neural Representation Similarity for Static Stimuli")
     
-    parser.add_argument("--model", default="sew_resnet18", type=str, help="name of model")
+    parser.add_argument("--model", default="sew_resnet18", type=str, help="name of model for load")
+    parser.add_argument("--model-name", default=None, type=str, help="name of model for save")
     parser.add_argument("--train-dataset", default="imagenet", type=str, choices=["imagenet", "ucf101"], help="name of pretrain dataset")
     parser.add_argument("--checkpoint-path", default=None, type=str, help="path of pretrained model checkpoint (default is None, which means that the checkpoint is provided by torchvision or timm)")
 
@@ -150,7 +151,7 @@ def main(args):
     else:
         noise_stimulus_path = None
     visual_model = VisualModel(
-        model_name=args.model,
+        model_name=args.model_name,
         layers_info=layers_info,
         extraction=extraction,
         replace=args.replace,
@@ -179,4 +180,6 @@ def main(args):
 
 if __name__ == "__main__":
     args = get_args()
+    if args.model_name is None:
+        args.model_name = args.model
     main(args)
