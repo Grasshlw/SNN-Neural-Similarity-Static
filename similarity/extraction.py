@@ -12,7 +12,7 @@ from model.inception_resnet_v2 import inceptionresnetv2
 from model.SEWResNet import *
 from model.ShallowSEWResNet import *
 from model.SpikingMobileNet import *
-from model.RecurrentSEWResNet import *
+from model.LoRaFBSNet import *
 from model.functional import *
 from spikingjelly.activation_based import functional, neuron
 

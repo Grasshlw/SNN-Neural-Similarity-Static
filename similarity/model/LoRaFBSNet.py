@@ -3,7 +3,7 @@ import torch.nn as nn
 from spikingjelly.activation_based import base, layer, neuron, surrogate
 
 
-__all__ = ['RecurrentSEWResNet', 'ConvRecurrentContainer', 'r_sew_resnet18', 'r_sew_resnet34', 'r_sew_resnet50', 'r_sew_resnet101', 'r_sew_resnet152']
+__all__ = ['LoRaFBSNet', 'ConvRecurrentContainer', 'lorafb_snet18', 'lorafb_snet34', 'lorafb_snet50', 'lorafb_snet101', 'lorafb_snet152']
 
 
 class ConvRecurrentContainer(base.MemoryModule):
@@ -151,10 +151,10 @@ class Bottleneck(nn.Module):
         return super().extra_repr() + f"cnf={self.cnf}"
 
 
-class RecurrentSEWResNet(nn.Module):
+class LoRaFBSNet(nn.Module):
     def __init__(self, block, layers, num_classes=101, groups=1, width_per_groups=64, 
                  norm_layer=None, cnf=None, zero_init_residual=False):
-        super(RecurrentSEWResNet, self).__init__()
+        super(LoRaFBSNet, self).__init__()
         if norm_layer is None:
             norm_layer = layer.BatchNorm2d
         self._norm_layer = norm_layer
@@ -228,21 +228,21 @@ class RecurrentSEWResNet(nn.Module):
         return x
 
         
-def r_sew_resnet18(**kwargs):
-    return RecurrentSEWResNet(BasicBlock, [2, 2, 2, 2], **kwargs)
+def lorafb_snet18(**kwargs):
+    return LoRaFBSNet(BasicBlock, [2, 2, 2, 2], **kwargs)
 
 
-def r_sew_resnet34(**kwargs):
-    return RecurrentSEWResNet(BasicBlock, [3, 4, 6, 3], **kwargs)
+def lorafb_snet34(**kwargs):
+    return LoRaFBSNet(BasicBlock, [3, 4, 6, 3], **kwargs)
 
 
-def r_sew_resnet50(**kwargs):
-    return RecurrentSEWResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
+def lorafb_snet50(**kwargs):
+    return LoRaFBSNet(Bottleneck, [3, 4, 6, 3], **kwargs)
 
 
-def r_sew_resnet101(**kwargs):
-    return RecurrentSEWResNet(Bottleneck, [3, 4, 23, 3], **kwargs)
+def lorafb_snet101(**kwargs):
+    return LoRaFBSNet(Bottleneck, [3, 4, 23, 3], **kwargs)
 
 
-def r_sew_resnet152(**kwargs):
-    return RecurrentSEWResNet(Bottleneck, [3, 8, 36, 3], **kwargs)
+def lorafb_snet152(**kwargs):
+    return LoRaFBSNet(Bottleneck, [3, 8, 36, 3], **kwargs)
