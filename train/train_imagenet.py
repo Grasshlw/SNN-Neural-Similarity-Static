@@ -65,7 +65,7 @@ def get_args():
     parser.add_argument("--model-name", default="sew_resnet18", type=str, help="name of model to train")
     parser.add_argument("--not-snn", action="store_true", help="model is not a snn")
     parser.add_argument('--T', default=4, type=int, help="total time-steps")
-    parser.add_argument("--output-path", default="/userhome/project/static_snn/ImageNet/logs", help="path to save outputs")
+    parser.add_argument("--output-path", default="logs/", help="path to save outputs")
     parser.add_argument("--print-freq", default=1000, type=int, help="print frequency")
     
     parser.add_argument("--local_rank", default=0, type=int, help="node rank for distributed training")

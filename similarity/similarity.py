@@ -17,7 +17,7 @@ def preset_neural_dataset(args):
     threshold = None
     if args.neural_dataset == "allen_natural_scenes":
         brain_areas = ['visp', 'visl', 'visrl', 'visal', 'vispm', 'visam']
-        time_step = 8
+        time_step = 25
         exclude = True
         threshold = 0.8
     elif args.neural_dataset == "macaque_face":
@@ -83,6 +83,8 @@ def build_extraction(args):
             num_classes=num_classes,
             device=args.device
         )
+    else:
+        raise ValueError(f"{args.model} is not in the list")
     return extraction, T, stimulus_name
 
 
